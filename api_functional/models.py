@@ -26,7 +26,7 @@ class Shops(models.Model):
     closing_time = models.PositiveSmallIntegerField(default=21)
 
     def __str__(self):
-        return f'shop {self.name} in city {self.city} on street {self.street}'
+        return f'shop {self.name} in city {self.city} on street {self.street.name}'
 
 
 
