@@ -58,6 +58,6 @@ GET /shop/?street=&city=&open=0/1
 Фреймворк для обработки http запросов Django +
 Django Rest Framework
 
-РеляциоNNая БД (PostgreSQL - предпочтительно,
+Реляционная БД (PostgreSQL - предпочтительно,
 MySQL и тд)
 Запросы в базу данных через ORM (ORM Nа выбор).
