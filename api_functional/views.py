@@ -19,15 +19,9 @@ class StreetsView(ListAPIView):
     serializer_class = StreetsSerializer
 
 
-# class ShopCreateView(ListCreateAPIView):
-#     queryset = Shops.objects.all()
-#
-#     serializer_class = ShopsSerializer
-
-
-class ShopListView(ListAPIView):
+class ShopListView(ListCreateAPIView):
     queryset = Shops.objects.all()
 
-    filter_backends = (DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend,)
     filterset_class = ShopFilter
     serializer_class = ShopListSerializer
