@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import *
+from api_functional.models import Cities, Streets, Shops
 
 
 @admin.register(Cities)
 class CityAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("id", "name")
 
 
 @admin.register(Streets)

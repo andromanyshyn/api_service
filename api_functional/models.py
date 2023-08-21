@@ -1,17 +1,16 @@
 from django.db import models
-from datetime import datetime
 
 
 class Cities(models.Model):
     name = models.CharField(max_length=32, unique=True)
 
     def __str__(self):
-        return self.name
+        return f"City: {self.name}"
 
 
 class Streets(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    city = models.ForeignKey(to=Cities, on_delete=models.CASCADE)
+    city = models.ForeignKey(to=Cities, on_delete=models.CASCADE, related_name="streets")
 
     def __str__(self):
         return f'street {self.name} in city {self.city.name}'

@@ -1,9 +1,9 @@
 from django.db.models import IntegerChoices
 from django.utils import timezone
 
-from django_filters import rest_framework as filters, Filter
+from django_filters import rest_framework as filters
 
-from .models import Shops
+from api_functional.models import Shops
 
 
 class CharFilterInFilter(filters.BaseInFilter, filters.CharFilter):
@@ -11,8 +11,8 @@ class CharFilterInFilter(filters.BaseInFilter, filters.CharFilter):
 
 
 class WorkingHours(IntegerChoices):
-    OPEN = 1, 'открыт'
-    CLOSED = 0, 'закрыт'
+    OPEN = 1, 'open'
+    CLOSED = 0, 'close'
 
 
 class ShopFilter(filters.FilterSet):

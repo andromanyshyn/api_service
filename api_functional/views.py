@@ -1,11 +1,10 @@
-from django.shortcuts import render
 from rest_framework import status
-from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView
 from rest_framework.response import Response
 
-from .models import Cities
-from .filters import *
-from .serializers import *
+from api_functional.models import Cities, Streets, Shops
+from api_functional.filters import ShopFilter
+from api_functional.serializers import ShopListSerializer, CitiesSerializer, StreetsSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -30,8 +29,5 @@ class ShopListView(ListCreateAPIView):
     serializer_class = ShopListSerializer
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data['id'], status=status.HTTP_201_CREATED, headers=headers)
+        response = super().create(request, *args, *kwargs)
+        return Response(response.data['id'], status=response.status_code, headers=response.headers)

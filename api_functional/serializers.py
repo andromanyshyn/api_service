@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import *
+from api_functional.models import Cities, Streets, Shops
 
 
 class CitiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cities
-        fields = ['name']
+        fields = ("name", )
 
 
 class StreetsSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class StreetsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Streets
-        fields = ['name', 'city']
+        fields = ("name", "city")
 
 
 class ShopListSerializer(serializers.ModelSerializer):
